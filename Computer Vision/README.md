@@ -22,7 +22,7 @@ After collecting the dataset we constructed bounding boxes around them and label
 
 <img width="960" alt="Untitled" src="https://user-images.githubusercontent.com/43816262/89100355-049c2d80-d414-11ea-99a1-1fb0ac651d34.png">
 
-Then we used transfer learning to train our model on ssd_mobilenet_version1. We have also quantized our model to make it light weigth so that the processing time of images is reduced.
+Then we used transfer learning to train our model on ssd_mobilenet_version1. We have also quantized our model to make it light weigth so that the processing time of images is reduced. For detection each image takes 2-3 sec on cpu and 0.5-1 sec on gpu.
 
 ![download (1)](https://user-images.githubusercontent.com/43816262/89100450-ae7bba00-d414-11ea-9baa-cae95d1bb513.png)
 ![download (2)](https://user-images.githubusercontent.com/43816262/89100451-b0de1400-d414-11ea-9434-d979a6d269cc.png)
