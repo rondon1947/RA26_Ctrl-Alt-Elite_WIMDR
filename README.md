@@ -1,7 +1,7 @@
 # RA26_Ctrl-Alt-Elite_WIMDR
 
 ## Project Description
-There are quite a lot of unnoticed waste in our country. Our main aim is to bring that waste to notice using drone and vehicular surveillance and even general public’s intervention, following thr footsteps of **"Swachh Bharat Abhiyan"**.
+There are quite a lot of unnoticed waste in our country. Our main aim is to bring that waste to notice using drone and vehicular surveillance and even general public’s intervention, following thr footsteps of **"Swachh Bharat Abhiyan"**.  
 The drone and vehicular cameras captures videos along with location, date and time and directly send it to our main server. The interested people can also capture the image of wastes in their nearby loacality through our app.  
  
 Deep learning techniques are used to detect whether the image contains garbage or not and also the animals present around the garbage.
