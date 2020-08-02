@@ -83,7 +83,9 @@ We have used pretrained YOLO model for detecting animals
  For now we are using reverse geocoding to get the city/town from a latitude and longitude and again an API call for finding the polulation density of that area. If the governement gives us the latest census data of India we can use that to get better results.
  
  ### Generating Index
- All the abouve values are integers so we are normalizing them in the range 0 to 1 and assigning weights to each feature and finding the index oin the end wich lies in the range 0 to 10.
+ All the abouve values are integers so we are normalizing them in the range 0 to 1 and assigning weights to each feature and finding the index oin the end wich lies in the range 0 to 10, which are divided in three zones red, yellow and green. (high to low urgency) 
+ 
+<img width="530" alt="jhk" src="https://user-images.githubusercontent.com/43816262/89117224-dbce7380-d4b9-11ea-98ae-28d43c88b64d.png">
 
 
 ### So How Everything Works
