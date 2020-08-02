@@ -4,7 +4,8 @@ from math import radians, sin, cos, acos
 import time
 
 def normalize(inp):
-    if min(inp) == max(inp) && max(inp) == 0:
+    
+    if min(inp) == max(inp) and max(inp) == 0:
         return inp
     
     else if min(inp) == max(inp):
