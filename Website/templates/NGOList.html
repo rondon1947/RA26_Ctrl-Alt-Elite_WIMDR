@@ -1,0 +1,191 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" style=" height: -webkit-fill-available;" >
+<head>
+  <meta charset="utf-8">
+  <title>NGO List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{%static 'css/ast-notif.css' %}" />
+  <script src="{%static 'js/ast-notif.js' %}"></script>
+</head>
+
+<body>
+
+<div class="main">
+   
+  
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+     
+       
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+       
+        <li class="nav-item">
+          <a href="#t1" class="nav-link">
+             <h1>NGOList</h1></a>
+        </li>
+      </ul>
+
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/gov-reviewed/" class="nav-link">
+             <h6>View Uncleaned Areas</h6></a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout/" class="nav-link">
+            <!-- logout -->
+            <i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+  
+    
+    
+    <div class="row"> 
+      <div class="col-8">
+       
+        <div class="container" style="margin-left:0px">
+        <!-- display NGOlist from db-->
+        <table class="table mt-3" id="t1">
+          <thead class="table-dark">
+            <tr>
+              <th>SNo.</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Rating</th>
+              <th>Visit Profile</th>
+              <th>Delete</th>
+              
+            
+
+            </tr>
+          </thead>
+          <tbody class="tbdy">
+            {% for i in list%}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.address}}</td>
+              <td>{{i.rating}}</td>
+              <td><button><a href="/gov-update-rating?name={{i.name}}">Visit</a></button></td>
+              <td><button type="submit" class="delete" data="{{i.name}}">Delete</button></td>
+              <!-- redirects to update.html -->
+              
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+            
+
+      </div>
+
+</div>
+ 
+<script>
+  $(".delete").on("click",function(e){
+    var x=$(this).attr("data");
+    console.log(x);
+    e.preventDefault();
+    console.log()
+    AstNotif.dialog('Delete', 'This will permanently delete NGO from our database', {
+  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
+  theme: 'default',
+  bgheadcolor: "white",
+  bgbodycolor: "white",
+  bgfootercolor: "white",
+  color: "red",
+  // Has icons?
+  icon: true,
+  // Custom icon image
+  imgIcon: "{% static 'img/error_putih_garis.png'%}",
+  // Icon size
+  iconSize: "48px",
+  // OK button text
+  positive: "OK",
+  // Cancel button text
+  negative: "Cancel",
+  // Font awesome class without "fa-"
+  fa: "",
+  // Efek lebay *special effect
+  lebayify: 0
+},()=>{
+      $.ajax({
+          type:"POST",
+          url:"",
+           async: false, //solution
+          data:{
+              name:x,
+              csrfmiddlewaretoken: '{{ csrf_token }}'
+          },
+          success:function(res){
+            
+if(res==200)
+{
+  setTimeout(function(){// wait for 5 secs(2)
+           location.reload(); // then reload the page.(3)
+      }, 3000); 
+  AstNotif.notify('Deleted', 'NGO Successfully Deleted', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
+  icon: true,
+  // Custom icon image
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
+  fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
+  // Efek lebay *special effect
+  lebayify: 0,
+  // Position
+  position: "right"
+});
+
+}
+else
+  {
+    AstNotif.notify('Error', 'This NGO does not exist', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
+  icon: true,
+  // Custom icon image
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
+  fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
+  // Efek lebay *special effect
+  lebayify: 0,
+  // Position
+  position: "right"
+});
+              }
+          }
+      })
+});
+})
+
+  </script>
+
+
+</body>
+</html>
