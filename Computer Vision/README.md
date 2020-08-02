@@ -17,6 +17,8 @@ There are two sources of our dataset.
 1. Open source garbage in image dataset 
 2. Dataset collected by us from our nearby areas.
 Augmentation - One of the major aspects while capturing a video or an image is the lighting effect depending on the weather (if its sunny or cloudy) drones might capture images with varied brightness. So bightness of the image is the main thing tthat we have considered while augmentation.
+#### Data augmentation - 
+Considering the effect of day light we have augmented our images based on lighting effects. (Such as brightness, contrast, saturaion, hue etc.) 
 
 After collecting the dataset we constructed bounding boxes around them and labelled them manually using this tool - https://github.com/tzutalin/labelImg
 
