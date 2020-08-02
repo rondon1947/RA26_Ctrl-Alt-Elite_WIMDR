@@ -25,6 +25,9 @@ from rest_framework.authtoken.models import Token
 from field_history.models import FieldHistory
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.contrib.gis.measure import D
+from django.contrib.gis.geos import GEOSGeometry
+from django.contrib.gis.geos import Point
 
 
 def HomeView(request):
@@ -518,11 +521,10 @@ def RunDaily(request):
             # to some active area
             li = ActiveImages.objects.filter(area=None)
             for obj in li:
-                print(obj.pk)
-                # If there is
-                err = 0.1
-                l = ActiveArea.objects.filter(Q(completed=False) &
-                                              Q(lat__lte=(obj.lat+err)) & Q(lat__gte=(obj.lat-err)) & Q(lon__lte=(obj.lon+err)) & Q(lon__gte=(obj.lon-err)))
+                pnt = Point(obj.lon, obj.lat)
+                l = ActiveArea.objects.filter(
+                    point__distance_lte=(pnt, D(km=10)))
+                print(l)
                 if(len(l) > 0):
                     print(obj.pk, "Assigned to Some Area")
                     elem = l[0]
@@ -563,3 +565,21 @@ def RunDaily(request):
     #####################################################
 
     # After Working with area grouping Update leaderboards
+# def trial(request):
+#     qs=
+
+
+def tryview(request):
+    l = ActiveArea.objects.all()
+    for x in l:
+        pt = Point(x.lon, x.lat, srid=4326)
+        x.point = pt
+        x.save()
+    l1 = ActiveImages.objects.all()
+    # print(len(l1))
+    for x in l1:
+        pt = Point(x.lon, x.lat, srid=4326)
+        # print(pt)
+        x.point = pt
+        x.save()
+    return HttpResponse(200)
