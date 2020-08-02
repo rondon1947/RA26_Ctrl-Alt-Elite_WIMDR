@@ -114,7 +114,7 @@ Our server is deployed with amazon EC2
 
 
 You are free to check it out
-[Link]()
+[Link](https://ctrlaltelite.cf/)
 
 Also have a look at our app
 [Link]()
