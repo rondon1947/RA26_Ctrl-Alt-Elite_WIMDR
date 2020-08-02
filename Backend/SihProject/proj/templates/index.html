@@ -1,0 +1,668 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/icon-font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=&v=weekly" defer></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=visualization" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Vishudh | We are Here for India's Waste Problem</title>
+    <style>
+        #block-wrp {
+            width: auto;
+            display: flex !important;
+            display: -webkit-flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        #block-wrp .block-item {
+            height: 700px;
+            width: -webkit-fill-available;
+            position: relative;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column
+        }
+        
+        #block-wrp .block-item .map-item {
+            height: 90%
+        }
+        
+        #block-wrp .block-item span.city-name {
+            text-align: center;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: #a2ccff;
+            height: 10%;
+            line-height: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+        <div class="navigation__background">&nbsp;</div>
+        <nav class="navigation__nav collapse navbar-collapse auto">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="/" class="navigation__link"><span>01</span>Home</a></li>
+                <li class="navigation__item"><a href="/login/" class="navigation__link"><span>02</span>
+                        Login</a>
+                </li>
+                <li class="navigation__item"><a href="/home/" class="navigation__link"><span>03</span>Our
+                        Project</a>
+                </li>
+                <li class="navigation__item"><a href="#trending-news" class="navigation__link"><span>04</span>Trending
+                        News</a></li>
+                <li class="navigation__item"><a href="#contact" class="navigation__link"><span>05</span>Contact
+                        Us</a>
+                </li>
+                <li class="navigation__item"><a href="/ngos-leaderboard/" class="navigation__link"><span>06</span>LeaderBoard</a></li>
+            </ul>
+        </nav>
+        </input>
+    </div>
+
+    <header class="header">
+        <div class="header__logo-box">
+            <img src="{%static 'img/logo-white.png'%}" alt="Logo" class="header__logo">
+        </div>
+
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Vishudh</span>
+                <span class="heading-primary--sub">Tackling India's Waste Problem</span>
+            </h1>
+
+            <a href="#section-tours" class="btn btn--white btn--animated">For Government/NGOs</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-about">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Our Project in a Glance
+                </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-margin-bottom-small">We are Here for India's Waste Problem</h3>
+                    <p class="paragraph">
+                        India collects 50-60% of its 56 million solid waste generated, creating a huge junk of unnoticed waste and making it one of the largest waste contributors of the world. Our main aim is to bring the unnoticed waste to the notice of Government officials
+                        and interested NGOs, using drone and vehicular surveillance and even to general public’s intervention.
+                    </p>
+
+                    <h3 class="heading-tertiary u-margin-bottom-small">Immediate Collection of Waste</h3>
+                    <p class="paragraph">
+                        We aim at providing a solution for efficient waste collection by incorporating in it the innovative technologies of Machine learning and Geo-tagging. Our project sends notifications to nearest concerned Government officials and NGOs through a Website
+                        and an App, giving higher priority to areas with more dense and dangerous level of waste accumulation.
+                    </p>
+
+                    <a href="#" class="btn-text">Learn more &rarr;</a>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
+
+                        <img srcset="{% static 'img/nat-1.jpg' 300w, 'img/nat-1-large.jpg' 1000w %}" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1" class="composition__photo composition__photo--p1" src="{% static 'img/nat-1-large.jpg' %}">
+
+                        <img srcset="{% static 'img/nat-2.jpg' 300w, 'img/nat-2-large.jpg' 1000w %}" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 2" class="composition__photo composition__photo--p2" src="{% static 'img/nat-2-large.jpg' %}">
+
+                        <img srcset="{% static 'img/nat-3.jpg' 300w, 'img/nat-3-large.jpg' 1000w %}" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 3" class="composition__photo composition__photo--p3" src="{% static 'img/nat-3-large.jpg' %}">
+
+                        <!--
+                    <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                    <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                    <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                    -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-features">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary" style="color: #eeeeee">
+                    Problems We Have Tackled So Far with our Project
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-world"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Accumulated Unattended Garbage Dumps</h3>
+                        <p class="feature-box__text">
+                            The drones and cameras on Government vehicles, on regular rounds of the cities, will capture videos, along with automatic location, date and time and directly send it to our main server. The interested citizens can also capture the images of waste in
+                            their nearby locality and send it through an App.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-compass"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Water Pollution from Garbage Dumps</h3>
+                        <p class="feature-box__text">
+                            By looking for water bodies near the garbage dumps, we can monitor for the spread of these wastes into the water bodies and prevent a great deal of water pollution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-map"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Illegal Transport of Waste through Traffic
+                        </h3>
+                        <p class="feature-box__text">
+                            Cameras and Servers, fitted at Highway Toll Booths and other Traffic areas and equipped with our software can detect waste being transported through trucks, and if it is not permitted or legalised, can prevent from illegal transport and dumping of wastes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-heart"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Decreasing Involvement of Animals with the Waste Materials
+                        </h3>
+                        <p class="feature-box__text">
+                            Our product automatically counts the number of animals around a garbage dump, therefore alerting the Government officials of their presence near hazardous wastes, and, so preventing them from consuming those wastes as well spreading them to other places.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-tours" id="section-tours">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Best Performing NGOs
+                </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--1">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--1">Rank One</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{li.one.name}}</li>
+                                    <li>{{li.one.address}}</li>
+                                    <li>{{li.one.mobile}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card__side card__side--back card__side--back-1">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Ratings:</p>
+                                    <p class="card__price-value">{{li.one.contribution}}</p>
+                                </div>
+                                <!-- <a href="#popup" class="btn btn--white">View Profile!</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--2">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--2">Rank Two</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{ li.two.name }}</li>
+                                    <li>{{ li.two.address }}</li>
+                                    <li>{{ li.two.mobile }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="card__side card__side--back card__side--back-2">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Ratings: </p>
+                                    <p class="card__price-value">{{li.two.contribution}}</p>
+                                </div>
+                                <!--<a href="#popup" class="btn btn--white">View Profile!</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--3">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--3">Rank Three</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{ li.three.name }}</li>
+                                    <li>{{ li.three.address }}</li>
+                                    <li>{{ li.three.mobile }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="card__side card__side--back card__side--back-3">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Rating:</p>
+                                    <p class="card__price-value">{{li.three.contribution}}</p>
+                                </div>
+                                <!-- <a href="#popup" class="btn btn--white">View Profile!</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="section-stories">
+            <div class="bg-video">
+                <video class="bg-video__content" autoplay muted loop>
+                    <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+                    <source src="{% static 'img/video.webm' %}" type="video/webm">
+                    Your browser is not supported!
+                </video>
+            </div>
+
+            <div class="u-center-text u-margin-bottom-big" id="trending-news">
+                <span>
+                    <h2 class="heading-secondary" style="font-weight: bold; color: darkgreen;">
+                        Some Trending News around You!!
+                    </h2>
+                </span>
+            </div>
+
+            <div class="row">
+                <div class="story">
+                    <figure class="story__shape">
+                        <img src="{% static 'img/nat-8.jpg' %}" alt="Person on a tour" class="story__img">
+                        <figcaption class="story__caption">by IndiaTV</figcaption>
+                    </figure>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small" style="font-weight: bold; color: darkgreen;">
+                            Jamshedpur tops in Waste Management</h3>
+                        <p style="font-weight: bold; color: black;">
+                            Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste management category all over India. Proud to be a Jamshedpurian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="story">
+                    <figure class="story__shape">
+                        <img src="{% static 'img/nat-9.jpg' %}" alt="Person on a tour" class="story__img">
+                        <figcaption class="story__caption">by Dainik Jaagran</figcaption>
+                    </figure>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small" style="font-weight: bold; color: darkgreen;">
+                            Once again, Jamshedpur tops in Waste Management</h3>
+                        <p style="font-weight: bold; color: black;">
+                            Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste management category all over India. Proud to be a Jamshedpurian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="u-center-text u-margin-top-huge" style="color: darkblue;">
+                <a href="#" class="btn-text">Read all stories &rarr;</a>
+            </div>
+        </section>
+        <div>
+            <div class="ju">
+                <div>
+                    <div style="text-align: center; font-size: 3rem;">
+                        <h3 style="color: lime;">
+                            A Heat Map
+                        </h3>
+                        <h6>
+                            for a General Overview of the current Waste Mismanagement index in the Country.
+                        </h6>
+                    </div>
+                    <div id="block-wrp">
+                        <div class="block-item">
+                            <div id="map" class="map-item"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center; font-size: 3rem;">
+                        <h3 style="color: lime;">
+                            A Pin Map
+                        </h3>
+                        <h6>
+                            for a more Precise Overview of the current index Waste Mismanagement near your Neighbourhood.
+                        </h6>
+                    </div>
+                    <div id="block-wrp">
+                        <div class="block-item" style="float: right;">
+                            <div id="map1" class="map-item"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center; margin-bottom: 2vh;">
+                        <h3 style="color: blue; font-size: 3rem;">
+                            Legends for the Maps
+                        </h3>
+                        <h6 style="color: red; font-size: 1.5rem;">
+                            Danger - need Immediate Attention!
+                        </h6>
+                        <h6 style="color: yellow; font-size: 1.5rem;">
+                            Careful - need Attention but not immediately!
+                        </h6>
+                        <h6 style="color: green; font-size: 1.5rem;">
+                            Clean - the Workers did a Commendable Job..
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var map, marker_center0, map1, marker_center;
+
+                function initMap() {
+                    //heat map
+                    /* Data points defined as a mixture of WeightedLocation and LatLng objects */
+                    var heatMapData = [];
+                    var st;
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/admin/getPlottingData",
+                        data: {
+                            password: "letitbeanything",
+                            csrfmiddlewaretoken: "{{ csrf_token }}"
+                        },
+                        async: false,
+                        success: function(res) {
+                            console.log(res);
+                            st = res;
+                        }
+                    })
+                    console.log(st)
+                    x = JSON.parse(st)
+                    for (var i = 0; i < x.length; i++) {
+                        heatMapData[i] = ({
+                            location: new google.maps.LatLng(x[i].latitude, x[i].longitude),
+                            weight: x[i].index
+                        });
+
+                    }
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {
+                            lat: 20.5937,
+                            lng: 78.9629
+                        },
+                        zoom: 4.5
+                    });
+
+
+                    var heatmap = new google.maps.visualization.HeatmapLayer({
+                        data: heatMapData
+                    });
+                    heatmap.setMap(map);
+
+
+                    //pin points
+
+                    map1 = new google.maps.Map(document.getElementById('map1'), {
+                        center: {
+                            lat: 20.5937,
+                            lng: 78.9629
+                        },
+                        zoom: 7
+                    });
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            marker_center = new google.maps.Marker({
+                                position: pos,
+                                title: "Your current location!"
+                            });
+
+                            // To add the marker to the map, call setMap();
+                            marker_center.setMap(map1);
+
+                            map1.setCenter(pos);
+                        }, function() {
+                            handleLocationError(true, marker_center, map1.getCenter());
+                        });
+                    } else {
+                        // Browser doesn't support Geolocation
+                        handleLocationError(false, marker_center, map1.getCenter());
+                    }
+
+
+                    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+                        infoWindow.open(map1);
+                    }
+
+
+                    for (var i = 0; i < x.length; i++) {
+
+                        var col = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                        if (x[i].index >= 0 & x[i].index <= 3.3) {
+                            col = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                        } else if (x[i].index > 3.3 & x[i].index <= 7.3) {
+                            col = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                        }
+
+                        var marker = new google.maps.Marker({
+                            position: {
+                                lat: x[i].latitude,
+                                lng: x[i].longitude
+                            },
+                            map: map1,
+                            icon: col,
+
+                        });
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "<p>Marker Location:" + marker.getPosition() + "</p>"
+                        });
+
+                        google.maps.event.addListener(marker, "click", function() {
+                            infowindow.open(map1, marker);
+                        });
+                    }
+                }
+            </script>
+
+        </div>
+
+
+        <section class="section-book">
+            <div class="row">
+                <div class="book">
+                    <div class="book__form">
+                        <form class="form" id="query_form">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    Contact Us
+                                </h2>
+                            </div>
+                            <div class="form__group">
+                                <input type="text" class="form__input" placeholder="Name" id="name" name="name" required>
+                                <label for="name" class="form__label">Full name</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="email" class="form__input" placeholder="Email address" id="email" name="email" required>
+                                <label for="email" class="form__label">Email address</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="text" class="form__input" placeholder="Message" id="message" name="message" required>
+                                <label for="message" class="form__label">Message</label>
+                            </div>
+
+
+                            <div class="form__group">
+                                <button class="btn btn--green">Notify us to Contact You
+                                    &rarr;</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col-1-of-2">
+                <a class="mast-icon" href="https://www.youtube.com/channel/UCAepkrKRuWbiW37R9UxK6pQ?view_as=subscriber" target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back black">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="mast-icon" href="https://twitter.com/RohanNishant2" target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="mast-icon" href="https://www.facebook.com/rohan.nishant.56" target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-1-of-2">
+                <p class="footer__copyright">
+                    Made with <i class="fas fa-heart" style="color: red"></i> by Team "Ctrl Alt Elite". <br> Design Inspired by Jonas Schmedtmann.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // alert("JS Working");
+    $(document).on("submit", "#query_form", function(e) {
+        // alert("AJAX Working");
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/query/",
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                message: $('#message').val()
+
+            },
+            success: function(res) {
+                console.log(res);
+                if (res == 200) {
+                    alert("We Will contact you soon");
+                } else {
+                    alert("Invalid Form");
+                }
+            }
+        })
+    })
+</script>
+
+</html>
+</script>
+
+</html>

@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+    
+    <title>Register</title>
+</head>
+<body>
+{% if error_message %}
+     <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+ {% endif %}
+
+	<div class="login-wrap">
+		<div class="login-html">
+			<input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab" onclick="newLocation()">Sign In</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab" onclick="newLocation2()">Sign Up</label>
+			<div class="login-form">
+				<div class="sign-in-htm">
+					<form action="" method="post">
+						{% csrf_token %}
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input id="user" type="text" class="input">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" type="password" class="input" data-type="password">
+					</div>
+					<div class="group">
+						<input id="check" type="checkbox" class="check" checked>
+						<label for="check"><span class="icon"></span> Keep me Signed in</label>
+					</div>
+					<div class="group">
+						<input type="submit" class="button" value="Sign In" name="signin">
+					</div>
+					<div class="hr"></div>
+					<div class="foot-lnk">
+						<a href="#forgot">Forgot Password?</a>
+					</div>
+					</form>
+				</div>
+				<div class="sign-up-htm">
+				<form action="" method="post">
+				{% csrf_token %}
+					<div class="group">
+					    
+						<label for="user" class="label">Username</label>
+						{{form1.username}}
+					</div>
+          	        <div class="group">
+					    
+						<label for="user" class="label">First Name</label>
+						{{form1.first_name}}
+					</div>
+                	<div class="group">
+					    
+						<label for="user" class="label">Last Name</label>
+						{{form1.last_name}}
+					</div>
+                     <div class="group">
+			
+						<label for="pass" class="label">Email Address</label>
+						{{form1.email}}
+					</div>
+					<input id="user" type="text" class="input">
+
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						{{form1.password1}}
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Repeat Password</label>
+						{{form1.password2}}
+					</div>
+					
+                	<div class="group">
+					    
+						<label for="user" class="label">Mobile</label>
+						{{form2.mob}}
+					</div>
+                	<div class="group">
+					    
+						<label for="user" class="label">Address</label>
+						{{form2.address}}
+					</div>
+					<div class="styled-select">
+					
+				     <select name="choice">
+                     <option value="Government">Government</option>
+                     <option value="NGO">NGO</option>
+                     <option value="AppUsers">AppUser</option>
+                     </select>
+                    <span class="fa fa-sort-desc"></span>
+             </div>
+					   <br>
+					<div class="group">
+						<input type="submit" class="button" value="Sign Up" name="signup">
+					</div>
+					<div>
+						<p>{{errors1}}</p>
+						<p>{{errors2}}</p>
+					<div>
+					<div class="hr"></div>
+					 <div class="foot-lnk">
+						<label for="tab-1"><a href="/login/">Already Member?</a>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script> 
+        function newLocation() { 
+            window.location.href="/login/"; 
+        } 
+        function newLocation2() { 
+            window.location.href="/register/"; 
+        } 
+      </script> 
+    
+</body>
+</html>

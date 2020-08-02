@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Leaderboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/leaderboard.css' %}">
+</head>
+
+<body>
+    <nav class="navbar" style="width: max-content;">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" style="font-size: 2vw;">Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ngos-leaderboard/" style="font-size: 2vw;">NGOs
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-leaderboard/" style="font-size: 2vw;">Users</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron" style="background-color: transparent;">
+        <h1 style="color: rgb(4, 5, 4); text-align: center; font-size: 9vw; font-weight: bolder;">LEADERBOARD</h1>
+        <h3 style="color: darkred; text-align: center; font-size: 4vw; font-weight: bold;">Race Your Way to the Top!!!
+        </h3>
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr style="color: azure; background-color: transparent!important">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
+                            Pos
+                        </th>
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
+                            User
+                        </th>
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
+                            Points
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in list %}
+                    <tr>
+                        <td style="font-size: 1vw;">{{forloop.counter}}</td>
+                        <td class="name" style="font-size: 2.9vw;">{{x.user}}</td>
+                        <td class="contributions" style="font-size: 2.9vw;">{{x.contribution}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        var color_list = [
+            "#202060",
+            "#660066",
+            "#660033",
+            "#cc6600",
+            "#0055ff",
+            "#006699",
+            "#408000",
+            "#00334d",
+            "#ff9900",
+            "#993300",
+            "#ff3333",
+            "#4d0000",
+            "#006666"
+        ]
+        var elem = document.getElementsByClassName("name")
+        for (i = 0, len = elem.length; i < len; i++) {
+            elem[i].style.cssText = "color: " + color_list[Math.floor(Math.random() * color_list.length)] + " !important";
+
+        }
+        var elem2 = document.getElementsByClassName("contributions")
+        for (i = 0, len = elem2.length; i < len; i++) {
+            elem2[i].style.cssText = "color: " + color_list[Math.floor(Math.random() * color_list.length)] + " !important";
+
+        }
+    </script>
+
+
+</body>
+
+</html>
