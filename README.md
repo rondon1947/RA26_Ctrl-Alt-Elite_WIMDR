@@ -7,17 +7,17 @@
 
 ## Project Description
 
-There are quite a lot of unnoticed waste in our country. Our main aim is to bring that waste to notice using drone and vehicular surveillance and even general public’s intervention.
+There are quite a lot of unnoticed waste in our country. Our main aim is to bring that waste to notice using drone and vehicular surveillance and even general public’s intervention following the footsteps of **"Swachh Bharat Abhiyan"**.    
 The drone and vehicular cameras captures videos along with location, date and time and directly send it to our main server. The interested people can also capture the image of waste in their nearby loacality using our app.
 
-Deep learning techniques are used to detect whether the image contains garbage or not and also the animals present around the garbage. Clusters are defined with each cluster having a radius of around 1km. Using API calls population density and number of water bodies is fetched for all the clusters. Thus with this we have these four features for every cluster -
+**Deep learning** techniques are used to detect whether the image contains garbage or not and also the animals present around the garbage. **Clusters** are defined with each cluster having a radius of around **1km**. Using API calls population density and number of water bodies is fetched for all the clusters. Thus with this we have these four features for every cluster:
 
-* Number of garbage locations
-* Water Bodies
-* Population Density
-* Number of Animals
+* **Number of garbage locations**
+* **Water Bodies**
+* **Population Density**
+* **Number of Animals**
 
-Using these four features a garbage index is generated and the clusters are divided into three types each with high, medium or low urgency. These index are plotted on the map and the ngos are notified about it through our website. NGOs undertake these areas for cleaning, and once they clean it the governement reviews the cleaned area and updates ratings of NGOs based on their performance. If there are certain areas which none of the NGOs have cleaned for a very long time the government can get it cleaned. Thus, with the involvement of the citizens, the NGOs and the governement we aim to make our country more clean.
+Using these four features a **Garbage Index** is generated and the clusters are divided into three types each with **high, medium or low urgency**. These index are plotted on the map and the ngos are notified about it through our website. NGOs undertake these areas for cleaning, and once they clean it the governement reviews the cleaned area and updates ratings of NGOs based on their performance. If there are certain areas which none of the NGOs have cleaned for a very long time the government can get it cleaned. Thus, with the involvement of the citizens, the NGOs and the governement we aim to make our country more clean.
 
 
 ## 📸ScreenShots
@@ -53,9 +53,10 @@ But We are ready to seperate it in future if the demand arrives
 ### Garbage Detection
 ### Data Set 
 There are two sources of our dataset.
-1. Open source garbage in image dataset 
-2. Dataset collected by us from our nearby areas.
-Augmentation - One of the major aspects while capturing a video or an image is the lighting effect depending on the weather (if its sunny or cloudy) drones might capture images with varied brightness. So bightness of the image is the main thing tthat we have considered while augmentation.
+1. **Open source garbage in image dataset**
+2. **Dataset collected by us from our nearby areas.**
+--
+**Augmentation** - One of the major aspects while capturing a video or an image is the lighting effect depending on the weather (if its sunny or cloudy) drones might capture images with varied brightness. So bightness of the image is the main thing tthat we have considered while augmentation.
 
 After collecting the dataset we constructed bounding boxes around them and labelled them manually using this tool - https://github.com/tzutalin/labelImg
 
@@ -83,7 +84,7 @@ We have used pretrained YOLO model for detecting animals
  For now we are using reverse geocoding to get the city/town from a latitude and longitude and again an API call for finding the polulation density of that area. If the governement gives us the latest census data of India we can use that to get better results.
  
  ### Generating Index
- All the abouve values are integers so we are normalizing them in the range 0 to 1 and assigning weights to each feature and finding the index oin the end wich lies in the range 0 to 10, which are divided in three zones red, yellow and green. (high to low urgency) 
+ All the above values are integers, so we are normalizing them in the range 0 to 1 and assigning weights to each feature and finding the index on the end which lies in the range 0 to 10, which are divided in three zones **red, yellow and green**. (high to low urgency) 
  
 <img width="530" alt="jhk" src="https://user-images.githubusercontent.com/43816262/89117224-dbce7380-d4b9-11ea-98ae-28d43c88b64d.png">
 
@@ -119,26 +120,26 @@ Also have a look at our app
 
 ## Build With
 
-* Python
-* Keras
-* TensorFlow
-* OpenCV
-* Flutter
-* Django
-* Google Maps API
-* HTML5
-* SCSS(CSS) 
-* JavaScript(jQuery)
+* Python  <a href=""><img height="30" src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png"></a>
+* Keras  <a href=""><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/1200px-Keras_logo.svg.png"></a>
+* TensorFlow  <a href=""><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png"></a>
+* OpenCV  <a href=""><img height="30" src="https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/2084117441551941714-512.png"></a>
+* Flutter  <a href=""><img height="30" src="https://cdn.icon-icons.com/icons2/2108/PNG/512/flutter_icon_130936.png"></a>
+* Django  <a href=""><img height="30" src="https://icon-library.com/images/django-icon/django-icon-0.jpg"></a>
+* Google Maps API  <a href=""><img height="30" src="https://pluspng.com/img-png/google-maps-png-google-maps-icon-1600.png"></a>
+* HTML5  <a href=""><img height="30" src="https://cdn.iconscout.com/icon/free/png-512/html5-10-569380.png"></a>
+* SCSS(CSS)  <a href=""><img height="30" src="https://cdn.iconscout.com/icon/free/png-512/sass-226054.png"></a>
+* JavaScript(jQuery)  <a href=""><img height="30" src="https://pluspng.com/img-png/logo-javascript-png-file-javascript-logo-png-1052.png"></a>
 
 
 ## Authors
 
-[Aryan Khandelwal]()   
-[Abhilasha Sinha]()  
-[Amit Dutta]()  
-[Rohan Nishant]()    
-[Rashi Gupta]()    
-[Shrey Rai]()  
+[Aryan Khandelwal](https://github.com/aryan29)   
+[Abhilasha Sinha](https://github.com/Abhilasha06)  
+[Amit Dutta](https://github.com/Amitdutta7)    
+[Rohan Nishant](https://github.com/rondon1947)    
+[Rashi Gupta](https://github.com/rashigupta37)    
+[Shrey Rai](https://github.com/shreyrai99)  
 
 
 
