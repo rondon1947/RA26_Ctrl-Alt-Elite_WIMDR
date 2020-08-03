@@ -21,9 +21,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/home/">Our Project<span class="sr-only">(current)</span></a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="/ngo-profile/">Profile<span class="sr-only">(current)</span></a>
       </li>
@@ -67,8 +65,12 @@
 
       <div class="row"> 
       <div class="col-8">
-        <h2 style="width:1120px!important" class="text-white p-2 "> Update Status</h2>
-        <div class="container" style="margin-left:0px">
+        
+       
+        <div id="t2" class="demo demo4" style="margin-bottom: 5rem;">
+                <div class="heading" style="font-size: 3vw;">Undertake Areas</div>
+        </div>
+
         <!-- display location of uncleaned areas-->
         <table class="table mt-3" id="t2">
           <thead class="table-dark">
@@ -76,7 +78,7 @@
               <th>SNo.</th>
               <th>Location</th>
               <th>Time</th>
-              <th>Review</th>
+              <th>Undertake</th>
               <th>View Images</th>
               
               
@@ -95,7 +97,7 @@
               <td>
                 <form action="" method="get">
                   <input type="hidden" name="id" value="{{x.pk}}">
-                  <input type="submit" class="btn" value="Review It" name="mybtn">
+                  <input type="submit" class="btn" value="Undertake" name="mybtn">
                 </form>
               </td>
               <td>
