@@ -21,3 +21,5 @@ Spatial Databases Store data in form of R-tree unlike regular databases which st
 * Safe Password Hashing(PBKDF2 Hashing Algorithm)    
      
 It's also important to note, that Django is implemented in Python, which has excellent security track record. Thus the underlying language is not a security risk.
+
+<img width="348" alt="Untitled Diagram-Page-3" src="https://user-images.githubusercontent.com/43816262/89152287-7abda300-d580-11ea-9b9e-bb2276ff84a8.png">
