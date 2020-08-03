@@ -103,6 +103,8 @@ Governement can increase or decrease rating of any NGO based on their work done 
 
 Anyone can see NGOs profile to see their previous works in cleaning India and rating assigned to them by government
 
+Here is the image of heat map which is live on our website     
+<img src="ReadmeAssets/HeatMap.png"></img>
 ## Future Scope
 
 
@@ -111,11 +113,10 @@ Anyone can see NGOs profile to see their previous works in cleaning India and ra
 Our server is deployed with amazon EC2 
 
 
-You are free to check it out
-[Link]()
+Our Website is live [here](https://ctrlaltelite.cf/)
 
 Also have a look at our app
-[Link]()
+[Link](https://drive.google.com/file/d/1DHeHex3gOKreIHktdvxPrblJhKDmaI67/view?usp=drivesdk)
 
 ## Build With
 
