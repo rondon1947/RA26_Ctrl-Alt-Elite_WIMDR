@@ -140,6 +140,20 @@ Also have a look at our app
 * SCSS(CSS)  <a href=""><img height="30" src="https://cdn.iconscout.com/icon/free/png-512/sass-226054.png"></a>
 * JavaScript(jQuery)  <a href=""><img height="30" src="https://pluspng.com/img-png/logo-javascript-png-file-javascript-logo-png-1052.png"></a>
 
+## Auth for checking our website
+For App    
+Username -> aryan    
+Password -> 29062000
+
+As NGO    
+Username -> CFSCC    
+Password -> Aryan@2000
+
+As Government    
+Username -> Governement12    
+Password -> Aryan@2000
+
+> These are only provided for easily checking working of website by inspectors and you can try registering with a valid email too
 
 ## Authors
 
