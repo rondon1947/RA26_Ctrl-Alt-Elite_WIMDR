@@ -8,3 +8,15 @@ Spatial Databases Store data in form of R-tree unlike regular databases which st
 **PostGIS** provides spatial objects for the PostgreSQL database, allowing storage and query of information about location and mapping. beside that PostgreSQL has many advantages over Sqlite3 database for such a large project
      
  You can find code using PostgreSQL database in different branch
+ 
+ # What about Security?
+ 
+ So here is a list of few things that we looked into while designing our Backend with django which provides some of these by default
+* Cross site Scripting (XSS Protection)
+* Cross Site Forgery protection (CSRF Protection)
+* SQL Injection protection
+* ClickJacking Protection
+* SSL(HTTPS) - for secure connection between server and clients
+* Secure Session Cookies
+* Safe Password Hashing(PBKDF2 Hashing Algorithm)
+It's also important to note, that Django is implemented in Python, which has excellent security track record. Thus the underlying language is not a security risk.
