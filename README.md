@@ -110,6 +110,12 @@ Here is the image of heat map which is live on our website
 <img src="ReadmeAssets/HeatMap.png"></img>
 ## Future Scope
 
+Presently our website is deployed on  AWS but it can comfortably be hosted on NICSI Cloud service of the Government in accordance with the data localization policy
+
+
+Vehicular Cameras will be deployed for image collection for cost reduction and greater efficency.
+
+
 
 ## Deployment
 
