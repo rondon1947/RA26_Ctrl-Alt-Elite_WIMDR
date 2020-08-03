@@ -4,12 +4,15 @@ from math import radians, sin, cos, acos
 import time
 
 def normalize(inp):
-    if min(inp) == max(inp):
-        
+    
+    if min(inp) == max(inp) and max(inp) == 0:
+        return inp
+    
+    else if min(inp) == max(inp):
         for i in range(0, len(inp)):
             inp[i] = inp[i]/min(inp)
-    else:
-        
+            
+    else:  
         for i in range(0, len(inp)):
             inp[i] = inp[i] - min(inp)
             inp [i] = inp[i]/(max(inp) - min(inp))

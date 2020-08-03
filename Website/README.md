@@ -40,7 +40,7 @@ If one logs in as a Government Official(admin), the person can release the list 
 * CSS3 (with Bootstrap & SCSS)
 * Javascript (with jQuery)
 * Django
-* SQLite 
+* PostgreSQL
 * Google Maps API 
 <br />
 Some extra libraries and frameworks like Google Fonts and Font Awesome to beautify the Website. 

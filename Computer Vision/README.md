@@ -17,12 +17,14 @@ There are two sources of our dataset.
 1. Open source garbage in image dataset 
 2. Dataset collected by us from our nearby areas.
 Augmentation - One of the major aspects while capturing a video or an image is the lighting effect depending on the weather (if its sunny or cloudy) drones might capture images with varied brightness. So bightness of the image is the main thing tthat we have considered while augmentation.
+#### Data augmentation - 
+Considering the effect of day light we have augmented our images based on lighting effects. (Such as brightness, contrast, saturaion, hue etc.) 
 
 After collecting the dataset we constructed bounding boxes around them and labelled them manually using this tool - https://github.com/tzutalin/labelImg
 
 <img width="960" alt="Untitled" src="https://user-images.githubusercontent.com/43816262/89100355-049c2d80-d414-11ea-99a1-1fb0ac651d34.png">
 
-Then we used transfer learning to train our model on ssd_mobilenet_version1. We have also quantized our model to make it light weigth so that the processing time of images is reduced. For image detection its 10fps on cpu and 20fps on gpu.
+Then we used transfer learning to train our model on ssd_mobilenet_version1. We used google colab to train our model on GPU. We have also quantized our model to make it light weigth so that the processing time of images is reduced. For image detection its 10fps on cpu and 20fps on gpu.
 
 ![download (1)](https://user-images.githubusercontent.com/43816262/89100450-ae7bba00-d414-11ea-9baa-cae95d1bb513.png)
 ![download (2)](https://user-images.githubusercontent.com/43816262/89100451-b0de1400-d414-11ea-9434-d979a6d269cc.png)
