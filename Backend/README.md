@@ -18,5 +18,6 @@ Spatial Databases Store data in form of R-tree unlike regular databases which st
 * ClickJacking Protection
 * SSL(HTTPS) - for secure connection between server and clients
 * Secure Session Cookies
-* Safe Password Hashing(PBKDF2 Hashing Algorithm)
+* Safe Password Hashing(PBKDF2 Hashing Algorithm)    
+     
 It's also important to note, that Django is implemented in Python, which has excellent security track record. Thus the underlying language is not a security risk.
